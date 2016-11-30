@@ -1,13 +1,13 @@
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-public class RomanNumaralCalculatorTest {
+public class RomanNumeralCalculatorTest {
 
-    private RomanNumaralCalculator calculator;
+    private RomanNumeralCalculator calculator;
 
     @org.junit.Before
     public void setUp() throws Exception {
-        calculator = new RomanNumaralCalculator();
+        calculator = new RomanNumeralCalculator();
 
     }
 
@@ -31,10 +31,10 @@ public class RomanNumaralCalculatorTest {
         assertEquals("III", calculator.add("II", "I"));
     }
 
-//    @Test
-//    public void I_plus_III_should_be_IV(){
-//        assertEquals("IV", calculator.add("I", "III"));
-//    }
+    @Test
+    public void I_plus_III_should_be_IV(){
+        assertEquals("IV", calculator.add("I", "III"));
+    }
 
 
 }
