@@ -15,6 +15,7 @@ class RomanNumeralCalculator {
         romanNumeralMap.put("II", 2);
         romanNumeralMap.put("III", 3);
         romanNumeralMap.put("IV", 4);
+        romanNumeralMap.put("V", 5);
     }
 
     private void populateIntegerHashMap() {
@@ -22,6 +23,7 @@ class RomanNumeralCalculator {
         integerMap.put(2, "II");
         integerMap.put(3, "III");
         integerMap.put(4, "IV");
+        integerMap.put(5, "V");
     }
 
     String add(String firstRoman, String secondRoman) {
