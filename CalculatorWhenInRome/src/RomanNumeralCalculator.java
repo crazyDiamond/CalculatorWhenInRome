@@ -27,7 +27,20 @@ class RomanNumeralCalculator {
     }
 
     String add(String firstRoman, String secondRoman) {
-        return integerMap.get(convertToInteger(firstRoman, secondRoman));
+        return convertToRomanNumaral(convertToInteger(firstRoman, secondRoman));
+    }
+
+    private String convertToRomanNumaral(Integer integer) {
+        if(integerMap.containsKey(integer)){
+            return integerMap.get(integer);
+        }
+        for(int i=integer; i>0; i--){
+            if(integerMap.containsKey(i)){
+                return integerMap.get(i) + integerMap.get(1);
+            }
+
+        }
+        return null;
     }
 
     private Integer convertToInteger(String firstRoman, String secondRoman) {
