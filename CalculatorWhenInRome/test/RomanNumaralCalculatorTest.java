@@ -27,9 +27,14 @@ public class RomanNumaralCalculatorTest {
     }
 
     @Test
-    public void II_plus_I_should_be_III(){
+    public void II_plus_I_should_be_III_though_params_are_switched(){
         assertEquals("III", calculator.add("II", "I"));
     }
+
+//    @Test
+//    public void I_plus_III_should_be_IV(){
+//        assertEquals("IV", calculator.add("I", "III"));
+//    }
 
 
 }
