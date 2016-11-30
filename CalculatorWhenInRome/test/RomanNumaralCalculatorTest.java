@@ -1,5 +1,5 @@
-
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class RomanNumaralCalculatorTest {
 
@@ -18,7 +18,12 @@ public class RomanNumaralCalculatorTest {
 
     @Test
     public void I_plus_I_should_be_II(){
-        assert calculator.add("I", "I").equals("II");
+        assertEquals("II", calculator.add("I", "I"));
+    }
+
+    @Test
+    public void I_plus_II_should_be_III(){
+        assertEquals("III", calculator.add("I", "II"));
     }
 
 
