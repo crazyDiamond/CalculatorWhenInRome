@@ -46,5 +46,10 @@ public class RomanNumeralCalculatorTest {
         assertEquals("VI", calculator.add("I", "V"));
     }
 
+    @Test
+    public void V_plus_II_should_be_VII(){
+        assertEquals("VII", calculator.add("V", "II"));
+    }
+
 
 }

@@ -34,11 +34,12 @@ class RomanNumeralCalculator {
         if(integerMap.containsKey(integer)){
             return integerMap.get(integer);
         }
+        String result = "";
         for(int i=integer; i>0; i--){
             if(integerMap.containsKey(i)){
-                return integerMap.get(i) + integerMap.get(1);
+                return integerMap.get(i) + result;
             }
-
+            result += integerMap.get(1);
         }
         return null;
     }
