@@ -75,4 +75,20 @@ public class RomanNumeralCalculatorValidateTest {
     public void convertToRomanNumeral_should_convert_41(){
         assertEquals("XLI", calculator.convertToRomanNumeral(41));
     }
+
+    @Test
+    public void convertToRomanNumeral_should_convert_59(){
+        assertEquals("LIX", calculator.convertToRomanNumeral(59));
+    }
+
+    @Test
+    public void convertToRomanNumeral_should_convert_90(){
+        assertEquals("XC", calculator.convertToRomanNumeral(90));
+    }
+
+    @Test
+    public void validate_should_be_90_for_XC(){
+        assertEquals(90, calculator.validate("XC"));
+    }
+
 }

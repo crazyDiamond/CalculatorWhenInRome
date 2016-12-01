@@ -18,6 +18,7 @@ class RomanNumeralCalculator {
         romanNumeralMap.put("X", 10);
         romanNumeralMap.put("XL", 40);
         romanNumeralMap.put("L", 50);
+        romanNumeralMap.put("XC", 90);
         romanNumeralMap.put("C", 100);
     }
 
@@ -29,6 +30,7 @@ class RomanNumeralCalculator {
         integerMap.put(10, "X");
         integerMap.put(40, "XL");
         integerMap.put(50, "L");
+        integerMap.put(90, "XC");
         integerMap.put(100, "C");
     }
 
@@ -45,12 +47,17 @@ class RomanNumeralCalculator {
         final int IX = romanNumeralMap.get("IX");
         final int XL = 40;
         final int L = 50;
+        final int XC = 90;
         final int C = 100;
 
         for (int i=0; i<=integer; i++){
             while(integer/C >= 1.0){
                 result += integerMap.get(C);
                 integer -= C;
+            }
+            while(integer/XC >= 1.0){
+                result += integerMap.get(XC);
+                integer -= XC;
             }
             while(integer/L >= 1.0){
                 result += integerMap.get(L);
