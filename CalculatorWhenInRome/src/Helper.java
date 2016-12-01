@@ -69,6 +69,10 @@ class Helper
 
     String convertToRomanNumeral(Integer integer) {
         String romanNumber = "";
+        if(integer < 0){
+            romanNumber = "-";
+            integer = Math.abs(integer);
+        }
         RomanResult result;
         final int I = romanNumeralMap.get("I");
         final int IV = romanNumeralMap.get("IV");
