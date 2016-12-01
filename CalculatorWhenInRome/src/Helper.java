@@ -55,7 +55,7 @@ class Helper
                 if (i + 1 < splitRoman.length) {
                     if (checkNextRomanIsGreater(romanNumeralMap, splitRoman[i], splitRoman[i + 1])) {
                         result += romanNumeralMap.get(splitRoman[i + 1]) - romanNumeralMap.get(splitRoman[i]);
-                        i += 2;
+                        i += 1;
                     } else {
                         result += romanNumeralMap.get(splitRoman[i]);
                     }

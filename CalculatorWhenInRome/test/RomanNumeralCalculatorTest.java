@@ -62,6 +62,11 @@ public class RomanNumeralCalculatorTest {
     }
 
     @Test
+    public void MCDXLVII_plus_II_should_be_MCDXLIX(){
+        assertEquals("MCDXLIX", calculator.add("MCDXLVII", "II"));
+    }
+
+    @Test
     public void XI_plus_L_should_be_LXI(){
         assertEquals("LXI", calculator.add("XI", "L"));
     }
