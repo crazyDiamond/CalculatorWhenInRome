@@ -12,18 +12,20 @@ class RomanNumeralCalculator {
 
     private void populateRomanNumeralHashMap() {
         romanNumeralMap.put("I", 1);
-        romanNumeralMap.put("II", 2);
-        romanNumeralMap.put("III", 3);
+        romanNumeralMap.put("IV", 4);
         romanNumeralMap.put("V", 5);
+        romanNumeralMap.put("IX", 9);
         romanNumeralMap.put("X", 10);
+        romanNumeralMap.put("L", 50);
     }
 
     private void populateIntegerHashMap() {
         integerMap.put(1, "I");
-        integerMap.put(2, "II");
-        integerMap.put(3, "III");
+        integerMap.put(4, "IV");
         integerMap.put(5, "V");
+        integerMap.put(9, "IX");
         integerMap.put(10, "X");
+        integerMap.put(50, "L");
     }
 
     String add(String firstRoman, String secondRoman) {
@@ -31,24 +33,33 @@ class RomanNumeralCalculator {
     }
 
     public String convertToRomanNumeral(Integer integer) {
+        String result = "";
         if (integerMap.containsKey(integer)) {
             return integerMap.get(integer);
         }
-        if(integer == 4){
-            return "IV";
-        }
-        if(integer == 9){
-            return "IX";
-        }
-        String result = "";
-        for (int i = integer; i > 0; i--) {
 
-            if (integerMap.containsKey(i)) {
-                return integerMap.get(i) + result;
+        for (int i=0; i<=integer; i++){
+            while(integer/50.0 >= 1.0){
+                result += "L";
+                integer -= 50;
             }
-            result += integerMap.get(1);
+            while(integer/10.0 >= 1.0){
+                result += "X";
+                integer -= 10;
+            }
+
+            while(integer/5.0 >= 1.0){
+                result += "V";
+                integer -= 5;
+            }
+
+            while(integer/1.0 >= 1.0){
+                result += "I";
+                integer -= 1;
+            }
         }
-        return null;
+        return result;
+
     }
 
     private Integer convertToInteger(String firstRoman, String secondRoman) {
@@ -63,14 +74,12 @@ class RomanNumeralCalculator {
             if (romanNumeralMap.containsKey(splitRoman[i])) {
                 if (i + 1 < splitRoman.length) {
                     if (checkNextRomanIsGreater(splitRoman[i], splitRoman[i + 1])) {
-                        result = romanNumeralMap.get(splitRoman[i+1]) - romanNumeralMap.get(splitRoman[i]);
+                        result = romanNumeralMap.get(splitRoman[i + 1]) - romanNumeralMap.get(splitRoman[i]);
                         i += 2;
-                    }
-                    else {
+                    } else {
                         result += romanNumeralMap.get(splitRoman[i]);
                     }
-                }
-                else {
+                } else {
                     result += romanNumeralMap.get(splitRoman[i]);
                 }
 
