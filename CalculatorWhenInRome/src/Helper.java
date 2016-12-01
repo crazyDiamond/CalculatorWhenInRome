@@ -1,8 +1,10 @@
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 class Helper
 {
-    private HashMap<String, Integer> romanNumeralMap = new HashMap<String, Integer>();
+    private LinkedHashMap<String, Integer> romanNumeralMap = new LinkedHashMap<String, Integer>();
     private HashMap<Integer, String> integerMap = new HashMap<Integer, String>();
 
     Helper(){
@@ -11,19 +13,19 @@ class Helper
     }
 
     private void populateIntegerHashMap() {
-        romanNumeralMap.put("I", 1);
-        romanNumeralMap.put("IV", 4);
-        romanNumeralMap.put("V", 5);
-        romanNumeralMap.put("IX", 9);
-        romanNumeralMap.put("X", 10);
-        romanNumeralMap.put("XL", 40);
-        romanNumeralMap.put("L", 50);
-        romanNumeralMap.put("XC", 90);
-        romanNumeralMap.put("C", 100);
-        romanNumeralMap.put("CD", 400);
-        romanNumeralMap.put("D", 500);
-        romanNumeralMap.put("CM", 900);
         romanNumeralMap.put("M", 1000);
+        romanNumeralMap.put("CM", 900);
+        romanNumeralMap.put("D", 500);
+        romanNumeralMap.put("CD", 400);
+        romanNumeralMap.put("C", 100);
+        romanNumeralMap.put("XC", 90);
+        romanNumeralMap.put("L", 50);
+        romanNumeralMap.put("XL", 40);
+        romanNumeralMap.put("X", 10);
+        romanNumeralMap.put("IX", 9);
+        romanNumeralMap.put("V", 5);
+        romanNumeralMap.put("IV", 4);
+        romanNumeralMap.put("I", 1);
     }
 
     private void populateRomanNumeralHashMap() {
@@ -73,35 +75,11 @@ class Helper
             romanNumber = "-";
             integer = Math.abs(integer);
         }
-        RomanResult result;
-        final int I = romanNumeralMap.get("I");
-        final int IV = romanNumeralMap.get("IV");
-        final int V = romanNumeralMap.get("V");
-        final int X = romanNumeralMap.get("X");
-        final int IX = romanNumeralMap.get("IX");
-        final int XL = romanNumeralMap.get("XL");
-        final int L = romanNumeralMap.get("L");
-        final int XC = romanNumeralMap.get("XC");
-        final int C = romanNumeralMap.get("C");
-        final int CD = romanNumeralMap.get("CD");
-        final int D = romanNumeralMap.get("D");
-        final int CM = romanNumeralMap.get("CM");
-        final int M = romanNumeralMap.get("M");
+        RomanResult result = new RomanResult(integer, romanNumber);
 
-            result = IterateThrough(M, integer, romanNumber);
-            result = IterateThrough(CM, result.getInputInteger(), result.getRomanNumber());
-            result = IterateThrough(D, result.getInputInteger(), result.getRomanNumber());
-            result = IterateThrough(CD, result.getInputInteger(), result.getRomanNumber());
-            result = IterateThrough(C, result.getInputInteger(), result.getRomanNumber());
-            result = IterateThrough(XC, result.getInputInteger(), result.getRomanNumber());
-            result = IterateThrough(L, result.getInputInteger(), result.getRomanNumber());
-            result = IterateThrough(XL, result.getInputInteger(), result.getRomanNumber());
-            result = IterateThrough(X, result.getInputInteger(), result.getRomanNumber());
-            result = IterateThrough(IX, result.getInputInteger(), result.getRomanNumber());
-            result = IterateThrough(V, result.getInputInteger(), result.getRomanNumber());
-            result = IterateThrough(IV, result.getInputInteger(), result.getRomanNumber());
-            result = IterateThrough(I, result.getInputInteger(), result.getRomanNumber());
-
+        for (Map.Entry<String, Integer> entry : romanNumeralMap.entrySet()) {
+            result = IterateThrough(entry.getValue(), result.getInputInteger(), result.getRomanNumber());
+        }
         return result.getRomanNumber();
 
     }

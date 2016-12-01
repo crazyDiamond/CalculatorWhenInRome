@@ -9,7 +9,6 @@ public class RomanNumeralCalculatorSubtractionTest {
     @org.junit.Before
     public void setUp() throws Exception {
         calculator = new RomanNumeralCalculator();
-
     }
 
     @org.junit.After
