@@ -38,52 +38,52 @@ public class HelperTest {
 
     @Test
     public void convertToRomanNumeral_should_convert_1(){
-        assertEquals("I", calculator.convertToRomanNumeral(1));
+        assertEquals("I", Helper.convertToRomanNumeral(calculator.integerMap, calculator.romanNumeralMap, 1));
     }
 
     @Test
     public void convertToRomanNumeral_should_convert_2(){
-        assertEquals("II", calculator.convertToRomanNumeral(2));
+        assertEquals("II", Helper.convertToRomanNumeral(calculator.integerMap, calculator.romanNumeralMap, 2));
     }
 
     @Test
     public void convertToRomanNumeral_should_convert_4(){
-        assertEquals("IV", calculator.convertToRomanNumeral(4));
+        assertEquals("IV", Helper.convertToRomanNumeral(calculator.integerMap, calculator.romanNumeralMap, 4));
     }
 
     @Test
     public void convertToRomanNumeral_should_convert_13(){
-        assertEquals("XIII", calculator.convertToRomanNumeral(13));
+        assertEquals("XIII", Helper.convertToRomanNumeral(calculator.integerMap, calculator.romanNumeralMap, 13));
     }
 
     @Test
     public void convertToRomanNumeral_should_convert_61(){
-        assertEquals("LXI", calculator.convertToRomanNumeral(61));
+        assertEquals("LXI", Helper.convertToRomanNumeral(calculator.integerMap, calculator.romanNumeralMap, 61));
     }
 
     @Test
     public void convertToRomanNumeral_should_convert_140(){
-        assertEquals("CXL", calculator.convertToRomanNumeral(140));
+        assertEquals("CXL", Helper.convertToRomanNumeral(calculator.integerMap, calculator.romanNumeralMap, 140));
     }
 
     @Test
     public void convertToRomanNumeral_should_convert_40(){
-        assertEquals("XL", calculator.convertToRomanNumeral(40));
+        assertEquals("XL", Helper.convertToRomanNumeral(calculator.integerMap, calculator.romanNumeralMap, 40));
     }
 
     @Test
     public void convertToRomanNumeral_should_convert_41(){
-        assertEquals("XLI", calculator.convertToRomanNumeral(41));
+        assertEquals("XLI", Helper.convertToRomanNumeral(calculator.integerMap, calculator.romanNumeralMap, 41));
     }
 
     @Test
     public void convertToRomanNumeral_should_convert_59(){
-        assertEquals("LIX", calculator.convertToRomanNumeral(59));
+        assertEquals("LIX", Helper.convertToRomanNumeral(calculator.integerMap, calculator.romanNumeralMap, 59));
     }
 
     @Test
     public void convertToRomanNumeral_should_convert_90(){
-        assertEquals("XC", calculator.convertToRomanNumeral(90));
+        assertEquals("XC", Helper.convertToRomanNumeral(calculator.integerMap, calculator.romanNumeralMap, 90));
     }
 
     @Test
