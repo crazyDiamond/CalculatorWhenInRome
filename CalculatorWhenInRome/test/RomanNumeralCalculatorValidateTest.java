@@ -32,6 +32,11 @@ public class RomanNumeralCalculatorValidateTest {
     }
 
     @Test
+    public void validate_should_be_140_for_CXL(){
+        assertEquals(140, calculator.validate("CXL"));
+    }
+
+    @Test
     public void convertToRomanNumeral_should_convert_1(){
         assertEquals("I", calculator.convertToRomanNumeral(1));
     }
@@ -54,5 +59,20 @@ public class RomanNumeralCalculatorValidateTest {
     @Test
     public void convertToRomanNumeral_should_convert_61(){
         assertEquals("LXI", calculator.convertToRomanNumeral(61));
+    }
+
+    @Test
+    public void convertToRomanNumeral_should_convert_140(){
+        assertEquals("CXL", calculator.convertToRomanNumeral(140));
+    }
+
+    @Test
+    public void convertToRomanNumeral_should_convert_40(){
+        assertEquals("XL", calculator.convertToRomanNumeral(40));
+    }
+
+    @Test
+    public void convertToRomanNumeral_should_convert_41(){
+        assertEquals("XLI", calculator.convertToRomanNumeral(41));
     }
 }
