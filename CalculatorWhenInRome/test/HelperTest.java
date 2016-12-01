@@ -2,7 +2,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class RomanNumeralCalculatorValidateTest {
+public class HelperTest {
     private RomanNumeralCalculator calculator;
 
     @org.junit.Before
@@ -17,23 +17,23 @@ public class RomanNumeralCalculatorValidateTest {
     }
 
     @Test
-    public void validate_should_be_2_for_II(){
-        assertEquals(2, calculator.validate("II"));
+    public void convertToInteger_should_be_2_for_II(){
+        assertEquals(2, Helper.convertToInteger(calculator.romanNumeralMap, "II"));
     }
 
     @Test
-    public void validate_should_be_4_for_IV(){
-        assertEquals(4, calculator.validate("IV"));
+    public void convertToInteger_should_be_4_for_IV(){
+        assertEquals(4, Helper.convertToInteger(calculator.romanNumeralMap, "IV"));
     }
 
     @Test
-    public void validate_should_be_61_for_LXI(){
-        assertEquals(61, calculator.validate("LXI"));
+    public void convertToInteger_should_be_61_for_LXI(){
+        assertEquals(61, Helper.convertToInteger(calculator.romanNumeralMap, "LXI"));
     }
 
     @Test
-    public void validate_should_be_140_for_CXL(){
-        assertEquals(140, calculator.validate("CXL"));
+    public void convertToInteger_should_be_140_for_CXL(){
+        assertEquals(140, Helper.convertToInteger(calculator.romanNumeralMap, "CXL"));
     }
 
     @Test
@@ -87,8 +87,8 @@ public class RomanNumeralCalculatorValidateTest {
     }
 
     @Test
-    public void validate_should_be_90_for_XC(){
-        assertEquals(90, calculator.validate("XC"));
+    public void convertToInteger_should_be_90_for_XC(){
+        assertEquals(90, Helper.convertToInteger(calculator.romanNumeralMap, "XC"));
     }
 
 }
