@@ -37,6 +37,20 @@ public class HelperTest {
     }
 
     @Test
+    public void convertToInteger_should_be_90_for_XC(){
+        assertEquals(90, helper.convertToInteger( "XC"));
+    }
+
+    @Test
+    public void convertToInteger_will_return_zero_when_given_null(){
+        assertEquals(0, helper.convertToInteger( null));
+    }
+
+    @Test
+    public void convertToInteger_will_return_zero_when_given_an_invalid_roman_numeral(){
+        assertEquals(0, helper.convertToInteger( "J"));
+    }
+    @Test
     public void convertToRomanNumeral_should_convert_1(){
         assertEquals("I", helper.convertToRomanNumeral(1));
     }
@@ -85,21 +99,5 @@ public class HelperTest {
     public void convertToRomanNumeral_should_convert_90(){
         assertEquals("XC", helper.convertToRomanNumeral(90));
     }
-
-    @Test
-    public void convertToInteger_should_be_90_for_XC(){
-        assertEquals(90, helper.convertToInteger( "XC"));
-    }
-
-    @Test
-    public void convertToInteger_will_return_zero_when_given_null(){
-        assertEquals(0, helper.convertToInteger( null));
-    }
-
-    @Test
-    public void convertToInteger_will_return_zero_when_given_an_invalid_roman_numeral(){
-        assertEquals(0, helper.convertToInteger( "J"));
-    }
-
 
 }

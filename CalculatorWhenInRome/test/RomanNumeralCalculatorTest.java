@@ -65,4 +65,14 @@ public class RomanNumeralCalculatorTest {
     public void XI_plus_L_should_be_LXI(){
         assertEquals("LXI", calculator.add("XI", "L"));
     }
+
+    @Test
+    public void invalid_roman_numerals_will_add_to_empty_string(){
+        assertEquals("", calculator.add("c", ""));
+    }
+
+    @Test
+    public void invalid_input_in_first_operand_would_return_second_operand(){
+        assertEquals("X", calculator.add("c", "X"));
+    }
 }
