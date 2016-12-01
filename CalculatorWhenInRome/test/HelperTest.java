@@ -47,6 +47,11 @@ public class HelperTest {
     }
 
     @Test
+    public void convertToInteger_should_be_900_for_CM(){
+        assertEquals(900, helper.convertToInteger( "CM"));
+    }
+
+    @Test
     public void convertToInteger_will_return_zero_when_given_null(){
         assertEquals(0, helper.convertToInteger( null));
     }
@@ -113,6 +118,15 @@ public class HelperTest {
     @Test
     public void convertToRomanNumeral_should_convert_1000(){
         assertEquals("M", helper.convertToRomanNumeral(1000));
+    }
+
+    @Test
+    public void convertToRomanNumeral_should_convert_900(){
+        assertEquals("CM", helper.convertToRomanNumeral(900));
+    }
+    @Test
+    public void convertToRomanNumeral_should_convert_3489(){
+        assertEquals("MMMCDLXXXIX", helper.convertToRomanNumeral(3489));
     }
 
 }
