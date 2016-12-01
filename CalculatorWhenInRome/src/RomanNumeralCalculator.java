@@ -34,28 +34,30 @@ class RomanNumeralCalculator {
 
     public String convertToRomanNumeral(Integer integer) {
         String result = "";
+        final int I = romanNumeralMap.get("I");
+        final int V = 5;
+        final int X = 10;
+        final int L = 50;
         if (integerMap.containsKey(integer)) {
             return integerMap.get(integer);
         }
 
         for (int i=0; i<=integer; i++){
-            while(integer/50.0 >= 1.0){
-                result += "L";
-                integer -= 50;
+            while(integer/L >= 1.0){
+                result += integerMap.get(L);
+                integer -= L;
             }
-            while(integer/10.0 >= 1.0){
-                result += "X";
-                integer -= 10;
+            while(integer/X >= 1.0){
+                result += integerMap.get(X);
+                integer -= X;
             }
-
-            while(integer/5.0 >= 1.0){
-                result += "V";
-                integer -= 5;
+            while(integer/V >= 1.0){
+                result += integerMap.get(V);
+                integer -= V;
             }
-
-            while(integer/1.0 >= 1.0){
-                result += "I";
-                integer -= 1;
+            while(integer/I >= 1.0){
+                result += integerMap.get(I);
+                integer -= I;
             }
         }
         return result;
