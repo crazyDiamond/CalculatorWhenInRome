@@ -6,9 +6,15 @@ class RomanNumeralCalculator {
         helper = new Helper();
     }
 
-    String add(String firstRoman, String secondRoman) {
+    String add(String firstOperand, String secondOperand) {
         return helper.convertToRomanNumeral(
-                (helper.convertToInteger(firstRoman) + helper.convertToInteger(secondRoman))
+                (helper.convertToInteger(firstOperand) + helper.convertToInteger(secondOperand))
+        );
+    }
+
+    String subtract(String firstOperand, String secondOperand) {
+        return helper.convertToRomanNumeral(
+                (helper.convertToInteger(firstOperand) - helper.convertToInteger(secondOperand))
         );
     }
 }

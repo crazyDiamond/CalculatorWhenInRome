@@ -1,14 +1,13 @@
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-public class RomanNumeralCalculatorTest {
+public class RomanNumeralCalculatorAdditionTest {
 
     private RomanNumeralCalculator calculator;
 
     @org.junit.Before
     public void setUp() throws Exception {
         calculator = new RomanNumeralCalculator();
-
     }
 
     @org.junit.After
