@@ -91,4 +91,15 @@ public class HelperTest {
         assertEquals(90, helper.convertToInteger( "XC"));
     }
 
+    @Test
+    public void convertToInteger_will_return_zero_when_given_null(){
+        assertEquals(0, helper.convertToInteger( null));
+    }
+
+    @Test
+    public void convertToInteger_will_return_zero_when_given_an_invalid_roman_numeral(){
+        assertEquals(0, helper.convertToInteger( "J"));
+    }
+
+
 }

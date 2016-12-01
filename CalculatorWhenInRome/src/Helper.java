@@ -1,9 +1,9 @@
 import java.util.HashMap;
 
-public class Helper
+class Helper
 {
-    public HashMap<String, Integer> romanNumeralMap = new HashMap<String, Integer>();
-    public HashMap<Integer, String> integerMap = new HashMap<Integer, String>();
+    private HashMap<String, Integer> romanNumeralMap = new HashMap<String, Integer>();
+    private HashMap<Integer, String> integerMap = new HashMap<Integer, String>();
 
     Helper(){
         populateRomanNumeralHashMap();
@@ -34,9 +34,14 @@ public class Helper
         integerMap.put(100, "C");
     }
 
-    public int convertToInteger(String romanNumeral) {
-        String[] splitRoman = romanNumeral.split("");
+    int convertToInteger(String romanNumeral) {
         int result = 0;
+        if (romanNumeral==null){
+            return result;
+        }
+
+        String[] splitRoman = romanNumeral.split("");
+
         for (int i = 1; i < splitRoman.length; i++) {
             if (romanNumeralMap.containsKey(splitRoman[i])) {
                 if (i + 1 < splitRoman.length) {
@@ -54,7 +59,7 @@ public class Helper
         return result;
     }
 
-    public String convertToRomanNumeral(Integer integer) {
+    String convertToRomanNumeral(Integer integer) {
         String romanNumber = "";
         RomanResult result = new RomanResult(0,"");
         final int I = romanNumeralMap.get("I");
