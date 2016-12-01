@@ -37,6 +37,11 @@ public class HelperTest {
     }
 
     @Test
+    public void convertToInteger_should_be_9_for_IX(){
+        assertEquals(9, helper.convertToInteger( "IX"));
+    }
+
+    @Test
     public void convertToInteger_should_be_90_for_XC(){
         assertEquals(90, helper.convertToInteger( "XC"));
     }
@@ -98,6 +103,16 @@ public class HelperTest {
     @Test
     public void convertToRomanNumeral_should_convert_90(){
         assertEquals("XC", helper.convertToRomanNumeral(90));
+    }
+
+    @Test
+    public void convertToRomanNumeral_should_convert_500(){
+        assertEquals("D", helper.convertToRomanNumeral(500));
+    }
+
+    @Test
+    public void convertToRomanNumeral_should_convert_1000(){
+        assertEquals("M", helper.convertToRomanNumeral(1000));
     }
 
 }

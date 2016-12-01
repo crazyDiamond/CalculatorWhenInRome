@@ -20,6 +20,8 @@ class Helper
         romanNumeralMap.put("L", 50);
         romanNumeralMap.put("XC", 90);
         romanNumeralMap.put("C", 100);
+        romanNumeralMap.put("D", 500);
+        romanNumeralMap.put("M", 1000);
     }
 
     private void populateRomanNumeralHashMap() {
@@ -32,6 +34,8 @@ class Helper
         integerMap.put(50, "L");
         integerMap.put(90, "XC");
         integerMap.put(100, "C");
+        integerMap.put(500, "D");
+        integerMap.put(1000, "M");
     }
 
     int convertToInteger(String romanNumeral) {
@@ -61,7 +65,7 @@ class Helper
 
     String convertToRomanNumeral(Integer integer) {
         String romanNumber = "";
-        RomanResult result = new RomanResult(0,"");
+        RomanResult result;
         final int I = romanNumeralMap.get("I");
         final int IV = romanNumeralMap.get("IV");
         final int V = romanNumeralMap.get("V");
@@ -71,10 +75,12 @@ class Helper
         final int L = romanNumeralMap.get("L");
         final int XC = romanNumeralMap.get("XC");
         final int C = romanNumeralMap.get("C");
+        final int D = romanNumeralMap.get("D");
+        final int M = romanNumeralMap.get("M");
 
-        for (int i = 0; i <= integer; i++) {
-
-            result = IterateThrough(C, integer, romanNumber);
+            result = IterateThrough(M, integer, romanNumber);
+            result = IterateThrough(D, result.getInputInteger(), result.getRomanNumber());
+            result = IterateThrough(C, result.getInputInteger(), result.getRomanNumber());
             result = IterateThrough(XC, result.getInputInteger(), result.getRomanNumber());
             result = IterateThrough(L, result.getInputInteger(), result.getRomanNumber());
             result = IterateThrough(XL, result.getInputInteger(), result.getRomanNumber());
@@ -84,7 +90,6 @@ class Helper
             result = IterateThrough(IV, result.getInputInteger(), result.getRomanNumber());
             result = IterateThrough(I, result.getInputInteger(), result.getRomanNumber());
 
-        }
         return result.getRomanNumber();
 
     }
