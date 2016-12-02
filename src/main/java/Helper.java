@@ -47,36 +47,30 @@ class Helper
     }
 
     int convertToInteger(String romanNumeral) {
-        IntegerResult result = new IntegerResult(0, 0);
-        if (romanNumeral != null) {
-            String[] splitRoman = romanNumeral.split("");
-            for (int index = 1; index < splitRoman.length; index++) {
-                if (romanNumeralMap.containsKey(splitRoman[index])) {
-                    index = HandleEffectsOfNextRomanLetter(result, splitRoman, index);
-                }
-            }
-            return ChangeResultToNegativeIfNeeded(result.IntegerResult , splitRoman);
-        } else {
-            return result.IntegerResult;
+        IntegerResult result = new IntegerResult();
+        if (romanNumeral == null) return result.IntegerResult;
+
+        String[] splitRoman = romanNumeral.split("");
+        for (int index = 1; index < splitRoman.length; index++) {
+            if (romanNumeralMap.containsKey(splitRoman[index]))
+                index = handleEffectsOfNextRomanInSequence(result, splitRoman, index);
+
         }
+        return convertToNegativeIfInputWasNegative(result.IntegerResult , splitRoman);
     }
 
-    private int HandleEffectsOfNextRomanLetter(IntegerResult result, String[] splitRoman, int index) {
+    private int handleEffectsOfNextRomanInSequence(IntegerResult result, String[] splitRoman, int index) {
         final int nextIndex = index + 1;
-        if (nextIndex < splitRoman.length) {
-            if (checkNextRomanIsGreater(romanNumeralMap, splitRoman[index], splitRoman[nextIndex])) {
+            if (nextIndex < splitRoman.length && checkNextRomanIsGreater(romanNumeralMap, splitRoman[index], splitRoman[nextIndex])) {
                 result.IntegerResult += romanNumeralMap.get(splitRoman[nextIndex]) - romanNumeralMap.get(splitRoman[index]);
                 index += 1;
             } else {
                 result.IntegerResult += romanNumeralMap.get(splitRoman[index]);
             }
-        } else {
-            result.IntegerResult += romanNumeralMap.get(splitRoman[index]);
-        }
         return index;
     }
 
-    private int ChangeResultToNegativeIfNeeded(int result, String[] splitRoman) {
+    private int convertToNegativeIfInputWasNegative(int result, String[] splitRoman) {
         if(splitRoman.length > 2 && splitRoman[1].equals("-")){
             result*=(-1);
         }
@@ -92,13 +86,13 @@ class Helper
         RomanResult result = new RomanResult(integer, romanNumber);
 
         for (Map.Entry<String, Integer> entry : romanNumeralMap.entrySet()) {
-            result = IterateThrough(entry.getValue(), result.getInputInteger(), result.getRomanNumber());
+            result = iterateThrough(entry.getValue(), result.getInputInteger(), result.getRomanNumber());
         }
         return result.getRomanNumber();
 
     }
 
-    private RomanResult IterateThrough(int c, int inputInteger, String romanNumber) {
+    private RomanResult iterateThrough(int c, int inputInteger, String romanNumber) {
         while (inputInteger / c >= 1.0) {
             romanNumber += integerMap.get(c);
             inputInteger -= c;
@@ -106,8 +100,12 @@ class Helper
         return new RomanResult(inputInteger, romanNumber);
     }
 
-    private static boolean checkNextRomanIsGreater(HashMap<String, Integer> romanNumeralMap, String s, String s1) {
-        return romanNumeralMap.get(s1) > romanNumeralMap.get(s);
+    private static boolean checkNextRomanIsGreater(HashMap<String, Integer> romanNumeralMap, String firstRoman, String secondRoman) {
+        return romanNumeralMap.get(secondRoman) > romanNumeralMap.get(firstRoman);
+    }
+
+    private class IntegerResult {
+        int IntegerResult = 0;
     }
 
 }
