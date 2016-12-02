@@ -46,25 +46,36 @@ class Helper
 
     int convertToInteger(String romanNumeral) {
         int result = 0;
-        if (romanNumeral==null){
-            return result;
-        }
+        boolean returnNegative = false;
+        if (romanNumeral != null) {
+            String[] splitRoman = romanNumeral.split("");
 
-        String[] splitRoman = romanNumeral.split("");
-
-        for (int i = 1; i < splitRoman.length; i++) {
-            if (romanNumeralMap.containsKey(splitRoman[i])) {
-                if (i + 1 < splitRoman.length) {
-                    if (checkNextRomanIsGreater(romanNumeralMap, splitRoman[i], splitRoman[i + 1])) {
-                        result += romanNumeralMap.get(splitRoman[i + 1]) - romanNumeralMap.get(splitRoman[i]);
-                        i += 1;
+            for (int i = 1; i < splitRoman.length; i++) {
+                if (splitRoman[i].equals("-")) {
+                    returnNegative = true;
+                }
+                if (romanNumeralMap.containsKey(splitRoman[i])) {
+                    if (i + 1 < splitRoman.length) {
+                        if (checkNextRomanIsGreater(romanNumeralMap, splitRoman[i], splitRoman[i + 1])) {
+                            result += romanNumeralMap.get(splitRoman[i + 1]) - romanNumeralMap.get(splitRoman[i]);
+                            i += 1;
+                        } else {
+                            result += romanNumeralMap.get(splitRoman[i]);
+                        }
                     } else {
                         result += romanNumeralMap.get(splitRoman[i]);
                     }
-                } else {
-                    result += romanNumeralMap.get(splitRoman[i]);
                 }
             }
+            return ChangeResultToNegativeIfNeeded(result, returnNegative);
+        } else {
+            return result;
+        }
+    }
+
+    private int ChangeResultToNegativeIfNeeded(int result, boolean returnNegative) {
+        if(returnNegative){
+            result*=(-1);
         }
         return result;
     }

@@ -52,6 +52,11 @@ public class HelperTest {
     }
 
     @Test
+    public void convertToInteger_should_return_negative_15_for_negative_XV(){
+        assertEquals(-15, helper.convertToInteger( "-XV"));
+    }
+
+    @Test
     public void convertToInteger_will_return_zero_when_given_null(){
         assertEquals(0, helper.convertToInteger( null));
     }
@@ -60,6 +65,17 @@ public class HelperTest {
     public void convertToInteger_will_return_zero_when_given_an_invalid_roman_numeral(){
         assertEquals(0, helper.convertToInteger( "J"));
     }
+
+    @Test
+    public void convertToRomanNumeral_should_convert_negative_1(){
+        assertEquals("-I", helper.convertToRomanNumeral(-1));
+    }
+
+    @Test
+    public void convertToRomanNumeral_should_convert_negative_666(){
+        assertEquals("-DCLXVI", helper.convertToRomanNumeral(-666));
+    }
+
     @Test
     public void convertToRomanNumeral_should_convert_1(){
         assertEquals("I", helper.convertToRomanNumeral(1));

@@ -31,6 +31,11 @@ public class RomanNumeralCalculatorAdditionTest {
     }
 
     @Test
+    public void II_plus_negative_II_should_be_emptyString(){
+        assertEquals("", calculator.add("II", "-II"));
+    }
+
+    @Test
     public void I_plus_III_should_be_IV(){
         assertEquals("IV", calculator.add("I", "III"));
     }
