@@ -47,6 +47,11 @@ public class RomanNumeralCalculatorSubtractionTest {
     }
 
     @Test
+    public void CMI_minus_III_should_be_DCCCXCVIII(){
+        assertEquals("DCCCXCVIII", calculator.subtract("CMI", "III"));
+    }
+
+    @Test
     public void MMM_minus_I_should_be_MMCMXCIX(){
         assertEquals("MMCMXCIX", calculator.subtract("MMM", "I"));
     }

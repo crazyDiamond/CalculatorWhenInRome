@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RomanNumeralCalculatorSubtractionTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2016-12-02T15:37:43" hostname="Jeevas-MacBook-Pro.local" time="0.004">
+  <properties/>
+  <testcase name="C_minus_I_should_be_XCIX" classname="RomanNumeralCalculatorSubtractionTest" time="0.0"/>
+  <testcase name="XXV_minus_XXI_should_be_IV" classname="RomanNumeralCalculatorSubtractionTest" time="0.0"/>
+  <testcase name="I_minus_II_should_be_negative_I" classname="RomanNumeralCalculatorSubtractionTest" time="0.0"/>
+  <testcase name="II_minus_I_should_be_I" classname="RomanNumeralCalculatorSubtractionTest" time="0.001"/>
+  <testcase name="CMI_minus_III_should_be_DCCCXCVIII" classname="RomanNumeralCalculatorSubtractionTest" time="0.0"/>
+  <testcase name="II_minus_II_should_be_emptyString" classname="RomanNumeralCalculatorSubtractionTest" time="0.001"/>
+  <testcase name="MMM_minus_I_should_be_MMCMXCIX" classname="RomanNumeralCalculatorSubtractionTest" time="0.0"/>
+  <testcase name="MCXV_minus_DLVI_should_be_DLIX" classname="RomanNumeralCalculatorSubtractionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
