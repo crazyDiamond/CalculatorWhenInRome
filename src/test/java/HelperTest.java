@@ -57,6 +57,16 @@ public class HelperTest {
     }
 
     @Test
+    public void convertToInteger_should_return_0_for_VVVV(){
+        assertEquals(0, helper.convertToInteger( "VV"));
+    }
+
+    @Test
+    public void convertToInteger_should_return_0_for_IIII(){
+        assertEquals(0, helper.convertToInteger( "IIII"));
+    }
+
+    @Test
     public void convertToInteger_will_return_zero_when_given_null(){
         assertEquals(0, helper.convertToInteger( null));
     }
@@ -145,6 +155,7 @@ public class HelperTest {
     public void convertToRomanNumeral_should_convert_1449(){
         assertEquals("MCDXLIX", helper.convertToRomanNumeral(1449));
     }
+
     @Test
     public void convertToRomanNumeral_should_convert_3489(){
         assertEquals("MMMCDLXXXIX", helper.convertToRomanNumeral(3489));

@@ -22,6 +22,10 @@ public class RomanNumeralCalculatorSubtractionTest {
     }
 
     @Test
+    public void invalid_input_in_first_and_second_operand_will_return_empty_string(){
+        assertEquals("", calculator.subtract("c", "b"));
+    }
+    @Test
     public void II_minus_I_should_be_I(){
         assertEquals("I", calculator.subtract("II", "I"));
     }

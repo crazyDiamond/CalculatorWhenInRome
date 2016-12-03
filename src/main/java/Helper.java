@@ -1,17 +1,28 @@
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 class Helper
 {
     private LinkedHashMap<String, Integer> romanNumeralMap;
     private HashMap<Integer, String> integerMap;
+    private List<String> limitArray;
 
     Helper(){
         romanNumeralMap = new LinkedHashMap<>();
         integerMap = new HashMap<>();
+        limitArray = new ArrayList<>();
         populateRomanNumeralHashMap();
         populateIntegerHashMap();
+        populateLimit();
+    }
+
+    private void populateLimit() {
+        limitArray.add("MMMM");
+        limitArray.add("DD");
+        limitArray.add("CCCC");
+        limitArray.add("LL");
+        limitArray.add("XXXX");
+        limitArray.add("VV");
+        limitArray.add("IIII");
     }
 
     private void populateIntegerHashMap() {
@@ -48,20 +59,20 @@ class Helper
 
     int convertToInteger(String romanNumeral) {
         IntegerResult result = new IntegerResult();
-        if (romanNumeral == null) return result.IntegerResult;
+        if (romanNumeral == null || !validSequence(romanNumeral))
+            return result.IntegerResult;
 
         String[] splitRoman = romanNumeral.split("");
         for (int index = 1; index < splitRoman.length; index++) {
             if (romanNumeralMap.containsKey(splitRoman[index]))
                 index = handleEffectsOfNextRomanInSequence(result, splitRoman, index);
-
         }
         return convertToNegativeIfInputWasNegative(result.IntegerResult , splitRoman);
     }
 
     private int handleEffectsOfNextRomanInSequence(IntegerResult result, String[] splitRoman, int index) {
         final int nextIndex = index + 1;
-            if (nextIndex < splitRoman.length && checkNextRomanIsGreater(romanNumeralMap, splitRoman[index], splitRoman[nextIndex])) {
+            if (nextIndex < splitRoman.length && checkNextRomanIsGreater(splitRoman[index], splitRoman[nextIndex])) {
                 result.IntegerResult += romanNumeralMap.get(splitRoman[nextIndex]) - romanNumeralMap.get(splitRoman[index]);
                 index += 1;
             } else {
@@ -89,7 +100,6 @@ class Helper
             result = iterateThrough(entry.getValue(), result.getInputInteger(), result.getRomanNumber());
         }
         return result.getRomanNumber();
-
     }
 
     private RomanResult iterateThrough(int c, int inputInteger, String romanNumber) {
@@ -100,8 +110,16 @@ class Helper
         return new RomanResult(inputInteger, romanNumber);
     }
 
-    private static boolean checkNextRomanIsGreater(HashMap<String, Integer> romanNumeralMap, String firstRoman, String secondRoman) {
+    private boolean checkNextRomanIsGreater(String firstRoman, String secondRoman) {
         return romanNumeralMap.get(secondRoman) > romanNumeralMap.get(firstRoman);
+    }
+
+    private boolean validSequence(String romanNumeral){
+        for(String limit: limitArray){
+            if(romanNumeral.contains(limit))
+                return false;
+        }
+        return true;
     }
 
     private class IntegerResult {

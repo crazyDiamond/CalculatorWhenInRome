@@ -86,6 +86,11 @@ public class RomanNumeralCalculatorAdditionTest {
     }
 
     @Test
+    public void invalid_input_in_first_and_second_operand_will_return_empty_string(){
+        assertEquals("", calculator.add("c", "b"));
+    }
+
+    @Test
     public void a_result_greater_than_3999_will_be_an_empty_string(){
         assertEquals("", calculator.add("MCMXCIX", "MMD"));
     }
